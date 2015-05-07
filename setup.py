@@ -1,28 +1,29 @@
-from distutils.core import setup
-import utensils
+from setuptools import setup, find_packages
 
-requires = []
+import pagerank
 
-packages = [
-    'pagerank',
-]
+requires = [
+        'beautifulsoup4',
+        'utensils',
+        'wsgiref',
+        ]
 
 setup(
     name='pagerank',
     author='Eytan Daniyalzade',
     author_email='eytan85@gmail.com',
     url='http://daniyalzade.com',
-    packages=packages,
+    install_requires=requires,
+    packages=find_packages(),
     description='Utility to get pagerank of keywords on google',
     long_description=open('README.rst').read(),
-    version=utensils.__version__,
+    version=pagerank.__version__,
     data_files=[
         ('', ['README.rst']),
         ],
     package_dir={
-        'utensils': 'utensils'
+        'pagerank': 'pagerank'
         },
-    install_requires=requires,
     include_package_data=True,
 )
 

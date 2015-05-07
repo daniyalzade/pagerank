@@ -1,6 +1,5 @@
 import re
 from urlparse import urlparse
-from lib.xgoogle.search import GoogleSearch
 
 def get_page_rank(target_domain, keywords, num_considered_entries=100, tld='com.tr', lang='tr'):
     """
@@ -8,6 +7,7 @@ def get_page_rank(target_domain, keywords, num_considered_entries=100, tld='com.
     @param lang: str, langguage of the query
     @return prank: int, nullable
     """
+    from lib.xgoogle.search import GoogleSearch
     if type(keywords) == unicode:
         keywords = keywords.encode('utf-8')
     if type(target_domain) == unicode:
